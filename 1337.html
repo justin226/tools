@@ -1,18 +1,155 @@
 <!DOCTYPE html>
 <html>
+
   <head>
+    <style>
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      input:checked+.slider {
+        background-color: #2196F3;
+      }
+
+      input:focus+.slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+
+      input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+
+      /* Rounded sliders */
+      .slider.round {
+        border-radius: 34px;
+      }
+
+      .slider.round:before {
+        border-radius: 50%;
+      }
+
+    </style>
     <title>
       Leet Converter
     </title>
   </head>
+
   <body>
-    <input type="text">
-    <button id="go">Go</button>
+    <input type="text" id="text">
+    <button id="go">Go</button><br>Decode
+    <label class="switch">
+      <input type="checkbox" id="encodeordecode" checked>
+      <span class="slider"></span>
+    </label>Decode<br><br>
+    <br>
     <span id="result"></span>
     <script>
-      document.getElementById("go").addEventListener("click", function(){
-        
-      })
+      document.getElementById("go").addEventListener("click", function() {
+        var type = document.getElementById("encodeordecode").checked;
+        var toOperate = document.getElementById("text").value;
+        var result;
+        if(type){
+          result = toOperate;
+          //Begin Decodeing
+          result = result.toUpperCase();
+          result = result.replace("A", "4");
+          result = result.replace("B", "ß");
+          result = result.replace("C", "(");
+          result = result.replace("D", "|)");
+          result = result.replace("E", "3");
+          result = result.replace("F", "|#");
+          result = result.replace("G", "6");
+          result = result.replace("H", "[-]");
+          result = result.replace("I", "!");
+          result = result.replace("J", "9");
+          result = result.replace("K", "|}");
+          result = result.replace("L", "1");
+          result = result.replace("M", "/X\\");
+          result = result.replace("N", "|\\|");
+          result = result.replace("O", "0");
+          result = result.replace("P", "|*");
+          result = result.replace("Q", "O,");
+          result = result.replace("R", "Я");
+          result = result.replace("S", "5");
+          result = result.replace("T", "7");
+          result = result.replace("U", "[_]");
+          result = result.replace("V", "\\/");
+          result = result.replace("W", "Ш");
+          result = result.replace("X", "%");
+          result = result.replace("Y", "¥");
+          result = result.replace("Z", "2");
+          document.getElementById("result").innerHTML = result;
+        }
+        if(type){
+          result = toOperate;
+          //Begin Encodeing
+          result = result.toUpperCase();
+          result = result.replace("4", "A");
+          result = result.replace("ß", "B");
+          result = result.replace("(", "C");
+          result = result.replace("|)", "D");
+          result = result.replace("3", "E");
+          result = result.replace("|#", "F");
+          result = result.replace("6", "G");
+          result = result.replace("[-]", "H");
+          result = result.replace("!", "I");
+          result = result.replace("9", "J");
+          result = result.replace("|{", "K");
+          result = result.replace("1", "L");
+          result = result.replace("/X\\", "M");
+          result = result.replace("|\\|", "N");
+          result = result.replace("0", "O");
+          result = result.replace("|*", "P");
+          result = result.replace("O,", "Q");
+          result = result.replace("Я", "R");
+          result = result.replace("5", "S");
+          result = result.replace("7", "T");
+          result = result.replace("[_]", "U");
+          result = result.replace("\\/", "V");
+          result = result.replace("Ш", "W");
+          result = result.replace("%", "X");
+          result = result.replace("¥", "Y");
+          result = result.replace("2", "Z");
+          document.getElementById("result").innerHTML = result;
+        }
+      });
+      
     </script>
   </body>
+
 </html>
