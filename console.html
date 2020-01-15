@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>
+      JS CONSOLE
+    </title>
+  </head>
+
+  <body>
+    <div id="errors" style="color: red"></div>
+    <hr>
+    <div id="console">
+    </div>
+    <hr><span style="color: #367cf1">
+      <strong>&gt;</strong></span>&nbsp;|&nbsp;<input type="text" style="border: 0" id="cmd" width="device.width();" autofocus>
+    <script>
+      var consolelog = true;
+
+      function clearConsole() {
+        document.getElementById("console").innerHTML = "";
+        document.getElementById("errors").innerHTML = "";
+      }
+      var console = {
+        log: function(con) {
+          try {
+            return "\"" + eval("\"" + con + "\"") + "\""
+          } catch (err) {
+            consolelog = false;
+            return "Uncaught " + err
+          }
+        }
+      }
+      var newElement;
+      var statement;
+      var result;
+      var errors = 0;
+      document.body.addEventListener('keydown', function(e) {
+        if (e.keyCode == 13) {
+          if (document.getElementById("cmd").value !== "")
+            evaluateFunction();
+        }
+      });
+
+      function evaluateFunction() {
+        statement = document.getElementById("cmd").value;
+
+        newElement = document.createElement('div');
+        document.getElementById("console").appendChild(newElement);
+        newElement.setAttribute('color', "gray");
+        newElement.innerHTML = "> | " + statement;
+        newElement = document.createElement('div');
+        document.getElementById("console").appendChild(newElement);
+        document.getElementById("cmd").value = "";
+        try {
+          result = eval(statement);
+          if (consolelog) {
+            newElement.setAttribute('style', "color: gray");
+            newElement.innerHTML = "< | " + result;
+            document.getElementById("cmd").value = "";
+          } else {
+            result = statement;
+            newElement.setAttribute('style', "color: red; background-color: #ffefef");
+            newElement.innerHTML = "✖| " + result;
+            document.getElementById("cmd").value = "";
+            errors++;
+            document.getElementById("errors").innerHTML = "×: " + errors;
+            consolelog = true;
+          }
+        } catch (err) {
+          result = "Uncaught " + err.name + ": " + err.message;
+          newElement.setAttribute('style', "color: red; background-color: #ffefef");
+          newElement.innerHTML = "✖| " + result;
+          document.getElementById("cmd").value = "";
+          errors++;
+          document.getElementById("errors").innerHTML = "×: " + errors;
+        }
+
+      }
+
+    </script>
+  </body>
+
+</html>
