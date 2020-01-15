@@ -73,9 +73,9 @@
     <input type="text" id="text">
     <button id="go">Go</button><br>Decode
     <label class="switch">
-      <input type="checkbox" id="encodeordecode" checked>
+      <input type="checkbox" id="encodeordecode">
       <span class="slider"></span>
-    </label>Decode<br><br>
+    </label>Encode<br><br>
     <br>
     <span id="result"></span>
     <script>
@@ -83,9 +83,9 @@
         var type = document.getElementById("encodeordecode").checked;
         var toOperate = document.getElementById("text").value;
         var result;
-        if(type){
+        if (type) {
           result = toOperate;
-          //Begin Decodeing
+          //Begin Decoding
           result = result.toUpperCase();
           result = result.replace("A", "4");
           result = result.replace("B", "ß");
@@ -115,10 +115,19 @@
           result = result.replace("Z", "2");
           document.getElementById("result").innerHTML = result;
         }
-        if(type){
+        if (!type) {
           result = toOperate;
-          //Begin Encodeing
           result = result.toUpperCase();
+          result = result.replace("BAI", "BYE");
+          result = result.replace("BI", "BYE");
+          result = result.replace("D00D", "DUDE");
+          result = result.replace("DOG8", "DOG");
+          result = result.replace("FORM", "FROM");
+          result = result.replace("GRILL", "GIRL");
+          result = result.replace("GUISE", "GUYS");
+          result = result.replace("H4X", "HACKS");
+          result = result.replace("H4X0RZ");
+          //Begin Decoding
           result = result.replace("4", "A");
           result = result.replace("ß", "B");
           result = result.replace("(", "C");
@@ -148,7 +157,7 @@
           document.getElementById("result").innerHTML = result;
         }
       });
-      
+
     </script>
   </body>
 
