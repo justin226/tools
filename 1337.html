@@ -86,6 +86,7 @@
         if (type) {
           result = toOperate;
           //Begin Decoding
+          for(var ii = 0; ii < toOperate.length; ii++){
           result = result.toUpperCase();
           result = result.replace("A", "4");
           result = result.replace("B", "ß");
@@ -113,9 +114,11 @@
           result = result.replace("X", "%");
           result = result.replace("Y", "¥");
           result = result.replace("Z", "2");
+          }
           document.getElementById("result").innerHTML = result;
         }
         if (!type) {
+          for(var i = 0; i < toOperate.length; i++){
           result = toOperate;
           result = result.toUpperCase();
           result = result.replace("BAI", "BYE");
@@ -154,6 +157,7 @@
           result = result.replace("%", "X");
           result = result.replace("¥", "Y");
           result = result.replace("2", "Z");
+          }
           document.getElementById("result").innerHTML = result;
         }
       });
