@@ -23,7 +23,11 @@
         return urlparameter;
     }
     if(getUrlParam("url", "none") != "none") {
-      location.replace(getUrlParam("url", "https://justin226.github.io"));
+      if(getUrlParam("url", "https://justin226.github.io") != ""){
+        location.replace(getUrlParam("url", "https://justin226.github.io"));
+      } else {
+        document.getElementById("error").innerHTML = "<h1>OOOOps!</h1><hr><p>An error has occured. Redirection failed.</p>"
+      }
     } else {
       document.getElementById("error").innerHTML = "<h1>OOOOps!</h1><hr><p>An error has occured. Redirection failed.</p>"
     }
