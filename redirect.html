@@ -4,8 +4,7 @@
   </head>
   <body>
     <div id="error">
-      <h1>OOOOps!</h1><hr>
-      <p>An error has occured. Redirection failed.</p>
+      
     </div>
   </body>
   <script>
@@ -25,6 +24,8 @@
     }
     if(getUrlParam("url", "none") != "none") {
       location.replace(getUrlParam("url", "https://justin226.github.io"));
+    } else {
+      document.getElementById("error").innerHTML = "<h1>OOOOps!</h1><hr><p>An error has occured. Redirection failed.</p>"
     }
   </script>
 </html>
