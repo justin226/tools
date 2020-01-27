@@ -24,7 +24,7 @@
     }
     if(getUrlParam("url", "none") != "none") {
       if(getUrlParam("url", "https://justin226.github.io") != "" && getUrlParam("url", "https://justin226.github.io") != undefined){
-        location.replace(getUrlParam("url", "https://justin226.github.io"));
+        location.replace(getUrlParam("url", "https://justin226.github.io").slice(0, 8) == "https://" ? getUrlParam("url", "https://justin226.github.io") : "https://" + getUrlParam("url", "https://justin226.github.io"));
       } else {
         document.getElementById("error").innerHTML = "<h1>OOOOps!</h1><hr><p>An error has occured. Redirection failed.</p>"
       }
