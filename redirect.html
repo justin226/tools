@@ -3,5 +3,28 @@
   <head>
   </head>
   <body>
+    <div id="error">
+      <h1>OOOOps!</h1><hr>
+      <p>An error has occured. Redirection failed.</p>
+    </div>
   </body>
+  <script>
+    function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+            vars[key] = value;
+        });
+        return vars;
+    }
+    function getUrlParam(parameter, defaultvalue){
+        var urlparameter = defaultvalue;
+        if(window.location.href.indexOf(parameter) > -1) {
+            urlparameter = getUrlVars()[parameter];
+        }
+        return urlparameter;
+    }
+    if(getUrlParam("url", "none") != "none") {
+      location.replace(getUrlParam("url", "https://justin226.github.io"));
+    }
+  </script>
 </html>
