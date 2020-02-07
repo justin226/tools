@@ -1,4 +1,4 @@
-document.getElementById("go").addEventListener("click", function(){
+try{document.getElementById("go").addEventListener("click", function(){
 document.getElementById("result").setAttribute("srcdoc", "<head><style>"+ document.getElementById("css").value + "</style></head><body>" + document.getElementById("html").value + "<script>" + document.getElementById("js").value + "</script></body>");
 });
 document.getElementById("darkmode").addEventListener("change", function(){
@@ -26,3 +26,4 @@ document.getElementById("load").addEventListener("click"){
     document.getElementById("js").innerHTML = loaclStorage.getItem(item + " js");
   }
 }
+   } catch(err){alert(err)}
