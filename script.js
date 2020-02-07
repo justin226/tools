@@ -54,3 +54,4 @@ document.getElementById("load").addEventListener("click", function(){
     }
   }
 });
+document.addEventListener("beforeunload", function(){return false})
