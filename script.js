@@ -20,7 +20,7 @@ document.getElementById("save").addEventListener("click", function(){
 });
 document.getElementById("load").addEventListener("click", function(){
   var item = prompt("Load...");
-  if(localStorage.getItem(item + "html") != null){
+  if(localStorage.getItem(item + " html") != null){
     document.getElementById("html").value = localStorage.getItem(item + " html");
     document.getElementById("css").value = localStorage.getItem(item + " css");
     document.getElementById("js").value = localStorage.getItem(item + " js");
