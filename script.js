@@ -24,5 +24,7 @@ document.getElementById("load").addEventListener("click", function(){
     document.getElementById("html").value = localStorage.getItem(item + " html");
     document.getElementById("css").value = localStorage.getItem(item + " css");
     document.getElementById("js").value = localStorage.getItem(item + " js");
+  } else {
+    alert("Not Found")
   }
 });
