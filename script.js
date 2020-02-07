@@ -21,8 +21,8 @@ document.getElementById("save").addEventListener("click", function(){
 document.getElementById("load").addEventListener("click", function(){
   var item = prompt("Load...");
   if(localStorage.getItem(item + "html") != null){
-    document.getElementById("html").innerHTML = loaclStorage.getItem(item + " html");
-    document.getElementById("css").innerHTML = loaclStorage.getItem(item + " css");
-    document.getElementById("js").innerHTML = loaclStorage.getItem(item + " js");
+    document.getElementById("html").value = loaclStorage.getItem(item + " html");
+    document.getElementById("css").value = loaclStorage.getItem(item + " css");
+    document.getElementById("js").value = loaclStorage.getItem(item + " js");
   }
 });
