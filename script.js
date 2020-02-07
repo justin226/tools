@@ -15,7 +15,7 @@ document.getElementById("darkmode").addEventListener("change", function(){
 document.getElementById("save").addEventListener("click", function(){
   var item = prompt("Save to...");
   if(item != null){
-    if(item + " html" != null){
+    if(localStorage.getItem(item + " html") == null){
       /*HTML*/localStorage.setItem(item + " html", document.getElementById("html").value);
       /*CSS*/localStorage.setItem(item + " css", document.getElementById("css").value);
       /*JS*/localStorage.setItem(item + " js", document.getElementById("js").value);
