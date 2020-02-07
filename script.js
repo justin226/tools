@@ -12,17 +12,17 @@ document.getElementById("darkmode").addEventListener("change", function(){
     document.getElementById("text").style.color = "black";
   }
 });
-document.getElementById("save").addEventListener("click"){
+document.getElementById("save").addEventListener("click", function(){
   var item = prompt("Save to...");
   /*HTML*/localStorage.setItem(item + " html", document.getElementById("html").value);
   /*CSS*/localStorage.setItem(item + " css", document.getElementById("css").value);
   /*JS*/localStorage.setItem(item + " js", document.getElementById("js").value);
-}
-document.getElementById("load").addEventListener("click"){
+});
+document.getElementById("load").addEventListener("click", function(){
   var item = prompt("Load...");
   if(localStorage.getItem(item + "html") != null){
     document.getElementById("html").innerHTML = loaclStorage.getItem(item + " html");
     document.getElementById("css").innerHTML = loaclStorage.getItem(item + " css");
     document.getElementById("js").innerHTML = loaclStorage.getItem(item + " js");
   }
-}
+});
